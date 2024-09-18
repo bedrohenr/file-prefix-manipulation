@@ -11,17 +11,20 @@ internal class Program
         string[] DirPaths = Directory.GetDirectories(InsertedPath);
 
         Console.WriteLine("Directories: ");
-        foreach (string DirName in DirPaths)
-        {
-            Console.WriteLine(DirName);
+        foreach (string DirPath in DirPaths) {
+            Console.WriteLine(DirPath);
+            // Get only dir name
+            // Rename 
         }
         Console.WriteLine("End of directories.");
 
         Console.WriteLine("");
 
         Console.WriteLine("Files: ");
-        foreach(string FileName in FilePaths) {
-            Console.WriteLine(FileName);
+        foreach(string FilePath in FilePaths) {
+            Console.WriteLine(FilePath);
+            // Get only path name
+            // Rename
         }
         Console.WriteLine("End of files.");
         
