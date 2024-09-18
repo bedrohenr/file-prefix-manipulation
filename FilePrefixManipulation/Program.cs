@@ -9,6 +9,7 @@ internal class Program
         string InsertedPath = "D:\\bkp\\Music\\MEmu Music";
         string[] FilePaths = Directory.GetFiles(InsertedPath);
         string[] DirPaths = Directory.GetDirectories(InsertedPath);
+        string FileName;
 
         Console.WriteLine("Directories: ");
         foreach (string DirPath in DirPaths) {
@@ -22,7 +23,8 @@ internal class Program
 
         Console.WriteLine("Files: ");
         foreach(string FilePath in FilePaths) {
-            Console.WriteLine(FilePath);
+            FileName = Path.GetFileName(FilePath);
+            Console.WriteLine(FileName);
             // Get only path name
             // Rename
         }
