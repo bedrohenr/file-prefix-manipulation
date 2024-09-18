@@ -1,0 +1,15 @@
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\bin\Debug\net8.0\FilePrefixManipulation.exe
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\bin\Debug\net8.0\FilePrefixManipulation.deps.json
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\bin\Debug\net8.0\FilePrefixManipulation.runtimeconfig.json
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\bin\Debug\net8.0\FilePrefixManipulation.dll
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\bin\Debug\net8.0\FilePrefixManipulation.pdb
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\obj\Debug\net8.0\FilePrefixManipulation.GeneratedMSBuildEditorConfig.editorconfig
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\obj\Debug\net8.0\FilePrefixManipulation.AssemblyInfoInputs.cache
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\obj\Debug\net8.0\FilePrefixManipulation.AssemblyInfo.cs
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\obj\Debug\net8.0\FilePrefixManipulation.csproj.CoreCompileInputs.cache
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\obj\Debug\net8.0\FilePrefixManipulation.sourcelink.json
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\obj\Debug\net8.0\FilePrefixManipulation.dll
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\obj\Debug\net8.0\refint\FilePrefixManipulation.dll
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\obj\Debug\net8.0\FilePrefixManipulation.pdb
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\obj\Debug\net8.0\FilePrefixManipulation.genruntimeconfig.cache
+D:\bkp\dev\ssh-repos\file-prefix-manipulation\FilePrefixManipulation\obj\Debug\net8.0\ref\FilePrefixManipulation.dll
