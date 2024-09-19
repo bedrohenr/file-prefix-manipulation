@@ -6,10 +6,11 @@ internal class Program
     private static void Main(string[] args) {
         Console.WriteLine("Started.");
 
+        string prefix = "[SPOTIFY-DOWNLOADER.COM] ";
         string InsertedPath = "D:\\bkp\\Music\\MEmu Music";
         string[] FilePaths = Directory.GetFiles(InsertedPath);
         string[] DirPaths = Directory.GetDirectories(InsertedPath);
-        string FileName;
+        string? FileName, NewFileName, NewFilePath;
 
         Console.WriteLine("Directories: ");
         foreach (string DirPath in DirPaths) {
@@ -24,7 +25,12 @@ internal class Program
         Console.WriteLine("Files: ");
         foreach(string FilePath in FilePaths) {
             FileName = Path.GetFileName(FilePath);
-            Console.WriteLine(FileName);
+            if(FileName.Contains(prefix)){
+                NewFileName = FileName.Replace(prefix,"");
+                NewFilePath = Path.GetDirectoryName(FilePath) + @"\" + NewFileName;
+                File.Move(FilePath, NewFilePath);
+                Console.WriteLine($"Renamed {FileName} to {NewFileName}.");
+            }
             // Get only path name
             // Rename
         }
