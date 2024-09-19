@@ -12,6 +12,8 @@ internal class Program
         string[] DirPaths = Directory.GetDirectories(InsertedPath);
         string? FileName, NewFileName, NewFilePath;
 
+        // TODO
+        // Make recurrent calls inside every folder?
         Console.WriteLine("Directories: ");
         foreach (string DirPath in DirPaths) {
             Console.WriteLine(DirPath);
