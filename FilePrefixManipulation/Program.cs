@@ -59,6 +59,33 @@ internal class Program
 
     private static void ChangeFilenamesPrefixes(string Prefix, string? NewPrefix, string InsertedPath){
 
+        string[] FilePaths = Directory.GetFiles(InsertedPath);
+        string FileName, NewFileName, NewFilePath;
+        int c = 0;
+
+        Console.WriteLine("Renaming files");
+        foreach(string FilePath in FilePaths) {
+
+            // In case the filename doesnt have the prefix matching
+            FileName = Path.GetFileName(FilePath);
+            if(!FileName.Contains(Prefix))
+                continue;
+
+            NewFileName = FileName.Replace(Prefix,NewPrefix);
+            NewFilePath = Path.GetDirectoryName(FilePath) + @"\" + NewFileName;
+            File.Move(FilePath, NewFilePath);
+            Console.WriteLine($"Renamed file {FileName} to {NewFileName}.");
+            c++;
+
+        }
+        if(c == 0)
+            Console.WriteLine("No prefix matches found.");
+        else
+            Console.WriteLine($"{c} files renamed.");
+
+        Console.WriteLine("End of files.");
+    }
+
     private static void ChangePrefixes(string? Prefix, string? NewPrefix, string? InsertedPath){
         // Checks if prefix was inserted
         if(String.IsNullOrEmpty(Prefix)){
