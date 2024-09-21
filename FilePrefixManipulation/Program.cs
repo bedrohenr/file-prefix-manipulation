@@ -12,6 +12,7 @@ internal class Program
         string[] FilePaths = Directory.GetFiles(Path);
         return FilePaths.Length > 0;
     }
+
     private static void RerunInFolder(string Prefix, string? NewPrefix, string InsertedPath){
         // Checks for directories inside the folder
         if(DirectoriesInPath(InsertedPath)){
