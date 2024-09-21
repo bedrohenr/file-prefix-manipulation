@@ -98,37 +98,15 @@ internal class Program
             return;
         }
 
-        // Strings
-        string FileName, NewFileName, NewFilePath;
-        string[] FilePaths = Directory.GetFiles(InsertedPath);
-        string[] DirPaths = Directory.GetDirectories(InsertedPath);
+        // Renaming prefix in directories
+        if(DirectoriesInPath(InsertedPath))
+            ChangeDirectoriesPrefixes(Prefix, NewPrefix, InsertedPath);
 
-        Console.WriteLine("Directories: ");
-        foreach (string DirPath in DirPaths) {
-            Console.WriteLine(DirPath);
-            FileName = Path.GetFileName(DirPath);
-            NewFileName = FileName.Replace(Prefix,"");
-            NewFilePath = Path.GetDirectoryName(DirPath) + @"\" + NewFileName;
-            Directory.Move(DirPath, NewFilePath);
-            ChangeFilesPrefix(Prefix, NewPrefix, InsertedPath); // Renaming inside the directory
-            Console.WriteLine($"Renamed {FileName} to {NewFileName}.");
-        }
-        Console.WriteLine("End of directories.");
-
-        Console.WriteLine("");
-
-        Console.WriteLine("Files: ");
-        foreach(string FilePath in FilePaths) {
-            FileName = Path.GetFileName(FilePath);
-            if(FileName.Contains(Prefix)){
-                NewFileName = FileName.Replace(Prefix,"");
-                NewFilePath = Path.GetDirectoryName(FilePath) + @"\" + NewFileName;
-                File.Move(FilePath, NewFilePath);
-                Console.WriteLine($"Renamed {FileName} to {NewFileName}.");
+        // Renaming prefixes of the files in the inserted directory
+        if(FilesInPath(InsertedPath))
+            ChangeFilenamesPrefixes(Prefix, NewPrefix, InsertedPath);
             }
-        }
-        Console.WriteLine("End of files.");
-    }
+
     private static void Main(string[] args) {
         Console.WriteLine("Program Started.");
 
