@@ -37,33 +37,34 @@ internal class Program
             return;
         }
 
-        Console.WriteLine("Renaming directories");
         foreach (string DirPath in DirPaths) {
-            // In case the directory doesnt have the prefix matching
             DirName = Path.GetFileName(DirPath);
+
+            // In case the present directory doesnt have the prefix matching
             if(!DirName.Contains(Prefix))
                 continue;
 
+            // Resolving new name and path
             NewDirName = DirName.Replace(Prefix,NewPrefix);
             NewDirPath = Path.GetDirectoryName(DirPath) + @"\" + NewDirName;
 
+            // Renames the directory
             Directory.Move(DirPath, NewDirPath);
-            Console.WriteLine($"Renamed folder {DirName} to {NewDirName}.");
 
-            // Checks if the program needs to be rerun inside this folder
+            // Message to command line
+            Console.WriteLine($"DIRECTORY: Renamed {DirName} to {NewDirName}.");
+
+            // Checks if the program needs to be rerun inside this folder (Has more directories inside of it or files)
             RerunInFolder(Prefix, NewPrefix, NewDirPath);
         }
-        Console.WriteLine("End of directories.");
-        
     }
 
     private static void ChangeFilenamesPrefixes(string Prefix, string? NewPrefix, string InsertedPath){
 
         string[] FilePaths = Directory.GetFiles(InsertedPath);
         string FileName, NewFileName, NewFilePath;
-        int c = 0;
+        int c = 0; // Counts the amount of prefix matches 
 
-        Console.WriteLine("Renaming files");
         foreach(string FilePath in FilePaths) {
 
             // In case the filename doesnt have the prefix matching
@@ -71,19 +72,18 @@ internal class Program
             if(!FileName.Contains(Prefix))
                 continue;
 
+            // Resolving path and new filename
             NewFileName = FileName.Replace(Prefix,NewPrefix);
             NewFilePath = Path.GetDirectoryName(FilePath) + @"\" + NewFileName;
+
+            // Renames the file
             File.Move(FilePath, NewFilePath);
-            Console.WriteLine($"Renamed file {FileName} to {NewFileName}.");
+
+            // Message to command line
+            Console.WriteLine($"FILE: Renamed file {FileName} to {NewFileName}.");
             c++;
 
         }
-        if(c == 0)
-            Console.WriteLine("No prefix matches found.");
-        else
-            Console.WriteLine($"{c} files renamed.");
-
-        Console.WriteLine("End of files.");
     }
 
     private static void ChangePrefixes(string? Prefix, string? NewPrefix, string? InsertedPath){
