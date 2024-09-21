@@ -3,7 +3,7 @@ Manipulate the prefix of files and subfiles of a specified path
 
 ## DEMO
 
-<img src="https://imgur.com/V8fhTuf" width="100%">
+[Imgur](https://imgur.com/V8fhTuf)
 
 
 ### Program requests: 
