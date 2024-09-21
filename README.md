@@ -3,7 +3,7 @@ Manipulate the prefix of files and subfiles of a specified path
 
 ## DEMO
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="V8fhTuf"><a href="https://imgur.com/V8fhTuf">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+https://github.com/user-attachments/assets/4228f07c-6a93-4942-a4c8-0b68642dfb88
 
 
 ### Program requests: 
