@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System.IO.Enumeration;
 
 internal class Program
@@ -105,7 +105,7 @@ internal class Program
         // Renaming prefixes of the files in the inserted directory
         if(FilesInPath(InsertedPath))
             ChangeFilenamesPrefixes(Prefix, NewPrefix, InsertedPath);
-            }
+    }
 
     private static void Main(string[] args) {
         Console.WriteLine("Program Started.");
@@ -124,7 +124,7 @@ internal class Program
         Path = Console.ReadLine();
 
         ChangePrefixes(Prefix, NewPrefix, Path);
-        
+
         Console.WriteLine("Program Finished.");
     }
 }
