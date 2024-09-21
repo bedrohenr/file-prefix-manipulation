@@ -1,26 +1,37 @@
-﻿using System.IO;
+using System.IO;
 using System.IO.Enumeration;
 
 internal class Program
 {
-    private static void Main(string[] args) {
-        Console.WriteLine("Started.");
+    private static void ChangeFilenamesPrefixes(string Prefix, string? NewPrefix, string InsertedPath){
+
+    }
+    private static void ChangeFilesPrefix(string? Prefix, string? NewPrefix, string? InsertedPath){
+        // Checks if prefix was inserted
+        if(String.IsNullOrEmpty(Prefix)){
+            Console.WriteLine("Prefix not inserted. Try again.");
+            return;
+        }
+        // Checks if the path was inserted
+        if(String.IsNullOrEmpty(InsertedPath)){
+            Console.WriteLine("Path not inserted. Try again.");
+            return;
+        }
 
         // Strings
-        string Prefix, InsertedPath, FileName, NewFileName, NewFilePath;
-
-        Prefix = "[SPOTIFY-DOWNLOADER.COM] ";
-        InsertedPath = "D:\\bkp\\Music\\MEmu Music";
+        string FileName, NewFileName, NewFilePath;
         string[] FilePaths = Directory.GetFiles(InsertedPath);
         string[] DirPaths = Directory.GetDirectories(InsertedPath);
 
-        // TODO
-        // Make recurrent calls inside every folder?
         Console.WriteLine("Directories: ");
         foreach (string DirPath in DirPaths) {
             Console.WriteLine(DirPath);
-            // Get only dir name
-            // Rename 
+            FileName = Path.GetFileName(DirPath);
+            NewFileName = FileName.Replace(Prefix,"");
+            NewFilePath = Path.GetDirectoryName(DirPath) + @"\" + NewFileName;
+            Directory.Move(DirPath, NewFilePath);
+            ChangeFilesPrefix(Prefix, NewPrefix, InsertedPath); // Renaming inside the directory
+            Console.WriteLine($"Renamed {FileName} to {NewFileName}.");
         }
         Console.WriteLine("End of directories.");
 
@@ -35,10 +46,27 @@ internal class Program
                 File.Move(FilePath, NewFilePath);
                 Console.WriteLine($"Renamed {FileName} to {NewFileName}.");
             }
-            // Get only path name
-            // Rename
         }
         Console.WriteLine("End of files.");
+    }
+    private static void Main(string[] args) {
+        Console.WriteLine("Program Started.");
+
+        string Prefix, NewPrefix;
+        string? Path;
+
+        Console.Write("Insert file prefix: ");
+        Prefix = Console.ReadLine();
+
+        Console.Write("Insert new file prefix: ");
+        NewPrefix = Console.ReadLine();
+
+        Console.Write("Insert path of file or directory: ");
+        Path = Console.ReadLine();
+
+        ChangeFilesPrefix(Prefix, NewPrefix, Path);
+
         
+        Console.WriteLine("Program Ended.");
     }
 }
