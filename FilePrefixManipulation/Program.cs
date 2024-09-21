@@ -3,6 +3,15 @@ using System.IO.Enumeration;
 
 internal class Program
 {
+    private static bool DirectoriesInPath(string Path){
+        string[] DirPaths = Directory.GetDirectories(Path);
+        return DirPaths.Length > 0;
+    }
+
+    private static bool FilesInPath(string Path){
+        string[] FilePaths = Directory.GetFiles(Path);
+        return FilePaths.Length > 0;
+    }
     private static void ChangeFilenamesPrefixes(string Prefix, string? NewPrefix, string InsertedPath){
 
     }
