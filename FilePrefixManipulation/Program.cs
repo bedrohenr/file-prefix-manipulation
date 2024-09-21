@@ -59,8 +59,7 @@ internal class Program
 
     private static void ChangeFilenamesPrefixes(string Prefix, string? NewPrefix, string InsertedPath){
 
-    }
-    private static void ChangeFilesPrefix(string? Prefix, string? NewPrefix, string? InsertedPath){
+    private static void ChangePrefixes(string? Prefix, string? NewPrefix, string? InsertedPath){
         // Checks if prefix was inserted
         if(String.IsNullOrEmpty(Prefix)){
             Console.WriteLine("Prefix not inserted. Try again.");
@@ -106,8 +105,9 @@ internal class Program
     private static void Main(string[] args) {
         Console.WriteLine("Program Started.");
 
-        string Prefix, NewPrefix;
-        string? Path;
+        // Will leave it nullable, we validate it further
+        // And show error message
+        string? Prefix, NewPrefix, Path;
 
         Console.Write("Insert file prefix: ");
         Prefix = Console.ReadLine();
@@ -118,9 +118,8 @@ internal class Program
         Console.Write("Insert path of file or directory: ");
         Path = Console.ReadLine();
 
-        ChangeFilesPrefix(Prefix, NewPrefix, Path);
-
+        ChangePrefixes(Prefix, NewPrefix, Path);
         
-        Console.WriteLine("Program Ended.");
+        Console.WriteLine("Program Finished.");
     }
 }
