@@ -12,6 +12,19 @@ internal class Program
         string[] FilePaths = Directory.GetFiles(Path);
         return FilePaths.Length > 0;
     }
+    private static void RerunInFolder(string Prefix, string? NewPrefix, string InsertedPath){
+        // Checks for directories inside the folder
+        if(DirectoriesInPath(InsertedPath)){
+            // Rerun Program
+            string DirName = Path.GetFileName(InsertedPath);
+            Console.WriteLine($"Operating inside folder: {DirName}");
+            ChangePrefixes(Prefix, NewPrefix, InsertedPath);
+            Console.WriteLine($"Finished folder {DirName}");
+        } else if (FilesInPath(InsertedPath)){
+            // Modifies only files
+            ChangeFilenamesPrefixes(Prefix, NewPrefix, InsertedPath);
+        }
+    }
     private static void ChangeFilenamesPrefixes(string Prefix, string? NewPrefix, string InsertedPath){
 
     }
