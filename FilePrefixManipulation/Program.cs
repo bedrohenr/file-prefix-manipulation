@@ -26,6 +26,37 @@ internal class Program
             ChangeFilenamesPrefixes(Prefix, NewPrefix, InsertedPath);
         }
     }
+
+    private static void ChangeDirectoriesPrefixes(string Prefix, string? NewPrefix, string InsertedPath){
+
+        string[] DirPaths = Directory.GetDirectories(InsertedPath);
+        string DirName, NewDirName, NewDirPath;
+
+        if(DirPaths.Length == 0){
+            Console.WriteLine("No directory found in the path.");
+            return;
+        }
+
+        Console.WriteLine("Renaming directories");
+        foreach (string DirPath in DirPaths) {
+            // In case the directory doesnt have the prefix matching
+            DirName = Path.GetFileName(DirPath);
+            if(!DirName.Contains(Prefix))
+                continue;
+
+            NewDirName = DirName.Replace(Prefix,NewPrefix);
+            NewDirPath = Path.GetDirectoryName(DirPath) + @"\" + NewDirName;
+
+            Directory.Move(DirPath, NewDirPath);
+            Console.WriteLine($"Renamed folder {DirName} to {NewDirName}.");
+
+            // Checks if the program needs to be rerun inside this folder
+            RerunInFolder(Prefix, NewPrefix, NewDirPath);
+        }
+        Console.WriteLine("End of directories.");
+        
+    }
+
     private static void ChangeFilenamesPrefixes(string Prefix, string? NewPrefix, string InsertedPath){
 
     }
