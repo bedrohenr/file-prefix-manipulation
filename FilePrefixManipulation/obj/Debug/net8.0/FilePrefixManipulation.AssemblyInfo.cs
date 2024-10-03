@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FilePrefixManipulation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b928bb1262bb81a4a54892184c0158944221729")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76d65b749153a4882fe312b6d5933f9230c9c17f")]
 [assembly: System.Reflection.AssemblyProductAttribute("FilePrefixManipulation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FilePrefixManipulation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
