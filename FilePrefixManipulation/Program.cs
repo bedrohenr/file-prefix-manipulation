@@ -41,18 +41,19 @@ internal class Program
             DirName = Path.GetFileName(DirPath);
 
             // In case the present directory doesnt have the prefix matching
-            if(!DirName.Contains(Prefix))
-                continue;
+            if(DirName.Contains(Prefix)){
+                // Resolving new name and path
+                NewDirName = DirName.Replace(Prefix,NewPrefix);
+                NewDirPath = Path.GetDirectoryName(DirPath) + @"\" + NewDirName;
 
-            // Resolving new name and path
-            NewDirName = DirName.Replace(Prefix,NewPrefix);
-            NewDirPath = Path.GetDirectoryName(DirPath) + @"\" + NewDirName;
+                // Renames the directory
+                Directory.Move(DirPath, NewDirPath);
 
-            // Renames the directory
-            Directory.Move(DirPath, NewDirPath);
-
-            // Message to command line
-            Console.WriteLine($"DIRECTORY: Renamed {DirName} to {NewDirName}.");
+                // Message to command line
+                Console.WriteLine($"DIRECTORY: Renamed {DirName} to {NewDirName}.");
+            } else {
+                NewDirPath = DirPath;
+            }
 
             // Checks if the program needs to be rerun inside this folder (Has more directories inside of it or files)
             RerunInFolder(Prefix, NewPrefix, NewDirPath);
